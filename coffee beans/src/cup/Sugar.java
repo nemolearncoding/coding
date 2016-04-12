@@ -24,11 +24,14 @@ public class Sugar {
 		// System.out.println(tmp.Get(8));
 		// System.out.println(tmp.FindNum(36));
 		// System.out.println(tmp.FindNum(23));
-		tmp.BubbleSort(true);
-		for (int j = 0; j < 7; j++) {
+		/*tmp.BubbleSort(false);
+		for (int j = 0; j < 8; j++) {
+			System.out.println(tmp.Get(j));
+		}*/
+		tmp.BinSort(false);
+		for (int j = 0; j < 8; j++) {
 			System.out.println(tmp.Get(j));
 		}
-
 	}
 
 }

@@ -82,4 +82,51 @@ public class DynamicArray {
 				}
 		}
 	}
+
+	public void BinSort(boolean k) {
+		int max = data_[0];
+		for (int i = 0; i < size_; i++) {
+			if (data_[i] > max) {
+				max = data_[i];
+			}
+		}
+		max++;
+		int[] data = new int[max];
+		for (int count = 0; count < max; count++) {
+			data[count] = -1;
+		}
+		if (k == true) {
+			for (int i = 0; i < size_; i++) {
+				for (int j = 0; j < max; j++) {
+					if (j == data_[i])
+						data[j] = data_[i];
+
+				}
+			}
+			int m = 0;
+			for (int n = 0; n < max; n++) {
+				if (data[n] != -1) {
+					data_[m] = data[n];
+					m++;
+				}
+			}
+		} else if (k == false) {
+			for (int i = 0; i < size_; i++) {
+				for (int j = 0; j < max; j++) {
+					if (j == data_[i])
+						data[j] = data_[i];
+
+				}
+			}
+			int m = 0;
+			for (int n = max - 1; n >= 0; n--) {
+				if (data[n] != -1) {
+					data_[m] = data[n];
+					m++;
+				}
+			}
+
+		}
+
+	}
 }
