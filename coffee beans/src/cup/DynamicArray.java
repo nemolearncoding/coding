@@ -15,58 +15,71 @@ public class DynamicArray {
 		}
 
 	}
-	public void PushBack(int value)
-	{
-		if(size_ >= data_.length)
-		{
+
+	public void PushBack(int value) {
+		if (size_ >= data_.length) {
 			int[] data = new int[data_.length * 2];
-			for(int i = 0; i<data_.length; ++i)
-			{
+			for (int i = 0; i < data_.length; ++i) {
 				data[i] = data_[i];
 			}
 			data_ = data;
-					
-					
+
 		}
 		data_[size_] = value;
 		size_++;
 	}
-	public void Set(int index,int value)
-	{
+
+	public void Set(int index, int value) {
 		data_[index] = value;
 	}
-	public int Get(int index)
-	{
+
+	public int Get(int index) {
 		return data_[index];
 	}
-	public int FindNum(int value)
-	{
-		
+
+	public int FindNum(int value) {
+
 		int middle = data_.length / 2;
 		int left = 0;
 		int right = data_.length;
-		
-		while(true)
-		{
-			if(left == right)
-			{
+
+		while (true) {
+			if (left == right) {
 				return -1;
 			}
-			if(value < data_[middle])
-			{
+			if (value < data_[middle]) {
 				right = middle;
-				middle = (left + right)/2;
-			}
-			else if(value > data_[middle])
-			{
-				left = middle+1;
-				middle = (left + right)/2;
-			}
-			else
-			{
+				middle = (left + right) / 2;
+			} else if (value > data_[middle]) {
+				left = middle + 1;
+				middle = (left + right) / 2;
+			} else {
 				return middle;
 			}
 		}
-		
+
+	}
+
+	public void BubbleSort(boolean k) {
+		int tmp = 0;
+		if (k == true) {
+			for (int i = size_ - 1; i > 0; i--)
+				for (int j = 0; j < i; j++) {
+					if (data_[j] > data_[j + 1]) {
+						tmp = data_[j + 1];
+						data_[j + 1] = data_[j];
+						data_[j] = tmp;
+					}
+				}
+		} else if (k == false) {
+			for (int i = size_ - 1; i > 0; i--)
+				for (int j = 0; j < i; j++) {
+					if (data_[j] < data_[j + 1]) {
+						tmp = data_[j + 1];
+						data_[j + 1] = data_[j];
+						data_[j] = tmp;
+					}
+				}
+		}
 	}
 }
