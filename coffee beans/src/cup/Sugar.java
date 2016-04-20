@@ -18,7 +18,7 @@ public class Sugar {
 		System.out.println("hello nemo" + Integer.toString(args.length));
 
 		DynamicArray tmp = new DynamicArray(8);
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 8; ++i) {
 			tmp.PushBack(i * i);
 		}
 		// System.out.println(tmp.Get(8));
@@ -28,7 +28,12 @@ public class Sugar {
 		for (int j = 0; j < 8; j++) {
 			System.out.println(tmp.Get(j));
 		}*/
-		tmp.BinSort(false);
+		/*tmp.BinSort(false);
+		for (int j = 0; j < 8; j++) {
+			System.out.println(tmp.Get(j));
+		}*/
+		
+		tmp.QuickSort( 0, 7);
 		for (int j = 0; j < 8; j++) {
 			System.out.println(tmp.Get(j));
 		}

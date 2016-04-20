@@ -129,4 +129,39 @@ public class DynamicArray {
 		}
 
 	}
+
+	public int Sort(int start, int end) {
+		int tmp = start;
+		int change = 0;
+		for (int i = start; i < end; ++i) {
+			if (data_[i] < data_[tmp]) {
+				change = data_[tmp];
+				data_[tmp] = data_[i];
+				tmp = tmp + 1;
+				data_[tmp] = change;
+
+				for (int j = i; j > tmp + 1; --j) {
+					data_[j] = data_[j - 1];
+
+				}
+			}
+		}
+		return tmp;
+	}
+
+	public void QuickSort(int start, int end) {
+
+		int index = 0;
+
+		if (start < end - 1) {
+			index = Sort(start, end);
+			// System.out.println(index);
+			// System.out.println(start);
+			// System.out.println(end);
+			QuickSort(start, index - 1);
+			QuickSort(index + 1, end);
+
+		}
+
+	}
 }
